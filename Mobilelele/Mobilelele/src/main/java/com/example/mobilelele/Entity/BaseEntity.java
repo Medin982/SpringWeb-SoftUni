@@ -1,22 +1,28 @@
 package com.example.mobilelele.Entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @MappedSuperclass
-public abstract class BaseEntity {
+public class BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected long id;
 
+    @Column(nullable = false)
+    protected LocalDate created;
 
-    private long id;
+    @Column(nullable = false)
+    protected LocalDate modified;
 
-    private LocalDate created;
-
-    private LocalDate modified;
-
-    public BaseEntity() {
+    @PrePersist
+    private void prePersist() {
+        setCreated(LocalDate.now());
+        setModified(LocalDate.now());
+    }
+    @PreUpdate
+    private void preUpdate() {
+        setModified(LocalDate.now());
     }
 
     public LocalDate getCreated() {
@@ -35,8 +41,6 @@ public abstract class BaseEntity {
         this.modified = modified;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }

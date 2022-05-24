@@ -22,12 +22,22 @@ public class UserEntity extends BaseEntity {
 
     private String imageUrl;
 
-    @OneToOne(mappedBy = "user", targetEntity = RoleEntity.class)
-    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    @OneToOne
     private RoleEntity role;
 
-    public UserEntity() {
-    }
+//    public UserEntity() {
+//    }
+//
+//    public UserEntity(String username, String password, String firstName, String lastName,
+//                      boolean isActive, String imageUrl, RoleEntity role) {
+//        this.username = username;
+//        this.password = password;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.isActive = isActive;
+//        this.imageUrl = imageUrl;
+//        this.role = role;
+//    }
 
     public String getUsername() {
         return username;

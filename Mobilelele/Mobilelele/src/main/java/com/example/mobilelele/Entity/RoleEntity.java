@@ -12,19 +12,12 @@ public class RoleEntity {
 
     private String name;
 
-    @OneToOne
-    private UserEntity user;
-
-    public RoleEntity() {
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
+//    public RoleEntity() {
+//    }
+//
+//    public RoleEntity(String name) {
+//        this.name = name;
+//    }
 
     public long getId() {
         return id;

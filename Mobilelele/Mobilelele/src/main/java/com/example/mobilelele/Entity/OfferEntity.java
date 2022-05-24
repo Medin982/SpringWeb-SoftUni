@@ -1,6 +1,8 @@
-package com.example.mobilelele.Entity.Enums;
+package com.example.mobilelele.Entity;
 
 import com.example.mobilelele.Entity.BaseEntity;
+import com.example.mobilelele.Entity.Enums.EngineEnum;
+import com.example.mobilelele.Entity.Enums.TransmissionEnum;
 import com.example.mobilelele.Entity.ModelEntity;
 import com.example.mobilelele.Entity.UserEntity;
 
@@ -34,15 +36,29 @@ public class OfferEntity extends BaseEntity {
     @Column(nullable = false)
     private int year;
 
-    @OneToMany
-    private Set<ModelEntity> model;
+    @ManyToOne
+    private ModelEntity model;
 
     @OneToOne
     private UserEntity seller;
 
-    public OfferEntity() {
-        this.model = new HashSet<>();
-    }
+//    public OfferEntity() {
+//        this.model = new HashSet<>();
+//    }
+
+//    public OfferEntity(String description, EngineEnum engine, String imageUrl,
+//                       int mileage, BigDecimal price, TransmissionEnum transmission,
+//                       int year, Set<ModelEntity> model, UserEntity seller) {
+//        this.description = description;
+//        this.engine = engine;
+//        this.imageUrl = imageUrl;
+//        this.mileage = mileage;
+//        this.price = price;
+//        this.transmission = transmission;
+//        this.year = year;
+//        this.model = model;
+//        this.seller = seller;
+//    }
 
     public String getDescription() {
         return description;
@@ -100,11 +116,11 @@ public class OfferEntity extends BaseEntity {
         this.year = year;
     }
 
-    public Set<ModelEntity> getModel() {
+    public ModelEntity getModel() {
         return model;
     }
 
-    public void setModel(Set<ModelEntity> model) {
+    public void setModel(ModelEntity model) {
         this.model = model;
     }
 

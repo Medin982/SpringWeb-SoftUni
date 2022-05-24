@@ -15,6 +15,10 @@ public class BrandEntity extends BaseEntity {
     public BrandEntity() {
     }
 
+    public BrandEntity(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

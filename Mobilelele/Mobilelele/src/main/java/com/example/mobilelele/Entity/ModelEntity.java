@@ -26,8 +26,18 @@ public class ModelEntity extends BaseEntity {
     @ManyToOne
     private BrandEntity brand;
 
-    public ModelEntity() {
-    }
+//    public ModelEntity() {
+//    }
+//
+//    public ModelEntity(String name, CategoryEnum categoryEnum,
+//                       String imageUrl, int startYear, int endYear, BrandEntity brand) {
+//        this.name = name;
+//        this.categoryEnum = categoryEnum;
+//        this.imageUrl = imageUrl;
+//        this.startYear = startYear;
+//        this.endYear = endYear;
+//        this.brand = brand;
+//    }
 
     public String getName() {
         return name;
