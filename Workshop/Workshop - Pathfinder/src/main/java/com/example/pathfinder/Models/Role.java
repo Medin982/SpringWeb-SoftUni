@@ -1,6 +1,6 @@
-package com.example.pathfinder.Models;
+package bg.pathfinder.Models;
 
-import com.example.pathfinder.Models.Enums.UsersRole;
+import bg.pathfinder.Models.Enums.UsersRole;
 
 import javax.persistence.*;
 

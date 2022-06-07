@@ -1,11 +1,11 @@
-package com.example.pathfinder.Models;
+package bg.pathfinder.Models;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
-public class Comments {
+@Table(name = "comments")
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class Comments {
     @ManyToOne
     private Route route;
 
-    public Comments() {
+    public Comment() {
     }
 
     public long getId() {

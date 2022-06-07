@@ -1,15 +1,10 @@
-package com.example.mobilelele.Entity;
+package com.example.mobilelele.Models.Entity;
 
-import com.example.mobilelele.Entity.BaseEntity;
-import com.example.mobilelele.Entity.Enums.EngineEnum;
-import com.example.mobilelele.Entity.Enums.TransmissionEnum;
-import com.example.mobilelele.Entity.ModelEntity;
-import com.example.mobilelele.Entity.UserEntity;
+import com.example.mobilelele.Models.Entity.Enums.EngineEnum;
+import com.example.mobilelele.Models.Entity.Enums.TransmissionEnum;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "offers")

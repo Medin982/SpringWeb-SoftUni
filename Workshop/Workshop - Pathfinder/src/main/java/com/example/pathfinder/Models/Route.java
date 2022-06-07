@@ -1,6 +1,6 @@
-package com.example.pathfinder.Models;
+package bg.pathfinder.Models;
 
-import com.example.pathfinder.Models.Enums.Level;
+import bg.pathfinder.Models.Enums.Level;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -33,8 +33,8 @@ public class Route {
     @OneToMany(mappedBy = "route", targetEntity = Picture.class)
     private Set<Picture> pictures;
 
-    @OneToMany(mappedBy = "route", targetEntity = Comments.class, cascade = CascadeType.ALL)
-    private Set<Comments> comments;
+    @OneToMany(mappedBy = "route", targetEntity = Comment.class, cascade = CascadeType.ALL)
+    private Set<Comment> comments;
 
     public Route() {
         this.pictures = new HashSet<>();
@@ -105,11 +105,11 @@ public class Route {
         this.pictures = pictures;
     }
 
-    public Set<Comments> getComments() {
+    public Set<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Set<Comments> comments) {
+    public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
 }

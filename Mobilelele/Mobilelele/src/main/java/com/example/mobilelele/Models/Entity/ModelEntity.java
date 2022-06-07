@@ -1,6 +1,6 @@
-package com.example.mobilelele.Entity;
+package com.example.mobilelele.Models.Entity;
 
-import com.example.mobilelele.Entity.Enums.CategoryEnum;
+import com.example.mobilelele.Models.Entity.Enums.CategoryEnum;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.example.pathfinder.Models.Enums;
+package bg.pathfinder.Models.Enums;
 
 public enum UsersRole {
     USER, MODERATOR, ADMIN

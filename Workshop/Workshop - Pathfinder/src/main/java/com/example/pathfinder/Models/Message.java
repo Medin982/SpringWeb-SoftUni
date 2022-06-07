@@ -1,11 +1,11 @@
-package com.example.pathfinder.Models;
+package bg.pathfinder.Models;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
-public class Messages {
+@Table(name = "messages")
+public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Messages {
     @ManyToOne
     private User recipient;
 
-    public Messages() {
+    public Message() {
     }
 
     public long getId() {

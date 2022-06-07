@@ -1,4 +1,4 @@
-package com.example.mobilelele.Entity;
+package com.example.mobilelele.Models.Entity;
 
 import javax.persistence.*;
 
@@ -20,24 +20,20 @@ public class UserEntity extends BaseEntity {
 
     private boolean isActive;
 
+    private String email;
+
     private String imageUrl;
 
     @OneToOne
     private RoleEntity role;
 
-//    public UserEntity() {
-//    }
-//
-//    public UserEntity(String username, String password, String firstName, String lastName,
-//                      boolean isActive, String imageUrl, RoleEntity role) {
-//        this.username = username;
-//        this.password = password;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.isActive = isActive;
-//        this.imageUrl = imageUrl;
-//        this.role = role;
-//    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getUsername() {
         return username;

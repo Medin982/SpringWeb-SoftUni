@@ -1,6 +1,6 @@
-package com.example.pathfinder.Models;
+package bg.pathfinder.Models;
 
-import com.example.pathfinder.Models.Enums.Level;
+import bg.pathfinder.Models.Enums.Level;
 
 import javax.persistence.*;
 import java.util.HashSet;

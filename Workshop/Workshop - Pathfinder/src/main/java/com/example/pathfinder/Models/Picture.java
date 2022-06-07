@@ -1,4 +1,4 @@
-package com.example.pathfinder.Models;
+package bg.pathfinder.Models;
 
 import javax.persistence.*;
 

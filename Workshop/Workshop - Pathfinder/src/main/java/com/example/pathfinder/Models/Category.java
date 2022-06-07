@@ -1,14 +1,14 @@
-package com.example.pathfinder.Models;
+package bg.pathfinder.Models;
 
-import com.example.pathfinder.Models.Enums.RouteCategory;
+import bg.pathfinder.Models.Enums.RouteCategory;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table
-public class Categories {
+@Table(name = "categories")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class Categories {
     @ManyToMany
     private Set<Route> routes;
 
-    public Categories() {
+    public Category() {
         this.routes = new HashSet<>();
     }
 
