@@ -20,7 +20,6 @@ public class UserService {
     private final UserRepository userRepository;
     private CurrentUser currentUser;
     private final PasswordEncoder passwordEncoder;
-
     private final ModelMapper modelMapper;
 
     @Autowired
@@ -64,7 +63,10 @@ public class UserService {
     }
 
     public void registerUser(UserRegisterDTO registerDTO) {
+        String encodedPassword = passwordEncoder.encode(registerDTO.getPassword());
+        registerDTO.setPassword(encodedPassword);
         UserEntity mappedUser = this.modelMapper.map(registerDTO, UserEntity.class);
         this.userRepository.save(mappedUser);
+        login(mappedUser);
     }
 }

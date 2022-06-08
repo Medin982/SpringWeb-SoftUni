@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class RegisterUserController {
 
     private final UserService userService;
@@ -42,7 +42,7 @@ public class RegisterUserController {
     @PostMapping("/register")
     public String register(UserRegisterDTO registerDTO) {
         this.userService.registerUser(registerDTO);
-        return "auth-login";
+        return "redirect:/";
     }
 
 
