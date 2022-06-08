@@ -23,7 +23,8 @@ public class UserService {
     private final ModelMapper modelMapper;
 
     @Autowired
-    public UserService(UserRepository userRepository, CurrentUser currentUser, PasswordEncoder passwordEncoder, ModelMapper modelMapper) {
+    public UserService(UserRepository userRepository, CurrentUser currentUser,
+                       PasswordEncoder passwordEncoder, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.currentUser = currentUser;
         this.passwordEncoder = passwordEncoder;
