@@ -32,11 +32,11 @@ public class UserService {
     }
 
     public boolean login(UserLoginDTO userLoginDTO) {
-        Optional<UserEntity> user = this.userRepository.findByEmail(userLoginDTO.getUsername());
+        Optional<UserEntity> user = this.userRepository.findByEmail(userLoginDTO.getEmail());
 
         if (user.isEmpty()) {
             LOGGER.info("User with not found. User name: {}",
-                    userLoginDTO.getUsername());
+                    userLoginDTO.getEmail());
             return false;
         }
 

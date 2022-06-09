@@ -8,10 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/users")
 public class RegisterUserController {
 
     private final UserService userService;
@@ -23,23 +21,30 @@ public class RegisterUserController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/login")
+    @GetMapping("/users/login")
     public String login() {
         return "auth-login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     public String login(UserLoginDTO userLoginDTO) {
+        System.out.println(userLoginDTO);
         this.userService.login(userLoginDTO);
         return "redirect:/";
     }
 
-    @GetMapping("/register")
+    @GetMapping("users/logout")
+    public String logout() {
+        this.userService.logout();
+        return "redirect:/";
+    }
+
+    @GetMapping("/users/register")
     public String register() {
         return "auth-register";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/user/register")
     public String register(UserRegisterDTO registerDTO) {
         this.userService.registerUser(registerDTO);
         return "redirect:/";

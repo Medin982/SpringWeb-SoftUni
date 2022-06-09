@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Table(name = "users")
 public class UserEntity extends BaseEntity {
 
-    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
