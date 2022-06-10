@@ -22,6 +22,10 @@ public class CurrentUser {
         return this.isLogged;
     }
 
+    public boolean isLogout() {
+        return !isLogged();
+    }
+
     public void setLogged(boolean logged) {
         this.isLogged = logged;
     }
