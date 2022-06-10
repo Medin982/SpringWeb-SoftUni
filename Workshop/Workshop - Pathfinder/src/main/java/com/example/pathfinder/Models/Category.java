@@ -1,6 +1,6 @@
-package bg.pathfinder.Models;
+package com.example.pathfinder.Models;
 
-import bg.pathfinder.Models.Enums.RouteCategory;
+import com.example.pathfinder.Models.Enums.RouteCategory;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -9,23 +9,18 @@ import java.util.Set;
 @Entity
 @Table(name = "categories")
 public class Category {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(columnDefinition = "TEXT")
-    private String description;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
     private RouteCategory name;
 
-    @ManyToMany
-    private Set<Route> routes;
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
     public Category() {
-        this.routes = new HashSet<>();
     }
 
     public long getId() {
@@ -50,13 +45,5 @@ public class Category {
 
     public void setName(RouteCategory name) {
         this.name = name;
-    }
-
-    public Set<Route> getRoutes() {
-        return routes;
-    }
-
-    public void setRoutes(Set<Route> routes) {
-        this.routes = routes;
     }
 }

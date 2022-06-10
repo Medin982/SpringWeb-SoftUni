@@ -1,13 +1,12 @@
-package bg.pathfinder.Models;
+package com.example.pathfinder.Models;
 
-import bg.pathfinder.Models.Enums.UsersRole;
+import com.example.pathfinder.Models.Enums.UsersRole;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
 public class Role {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

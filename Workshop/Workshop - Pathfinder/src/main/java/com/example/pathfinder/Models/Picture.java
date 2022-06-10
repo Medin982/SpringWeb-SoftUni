@@ -1,11 +1,10 @@
-package bg.pathfinder.Models;
+package com.example.pathfinder.Models;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "pictures")
 public class Picture {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

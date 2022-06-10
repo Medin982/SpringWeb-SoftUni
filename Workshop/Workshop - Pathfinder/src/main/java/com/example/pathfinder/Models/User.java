@@ -1,6 +1,6 @@
-package bg.pathfinder.Models;
+package com.example.pathfinder.Models;
 
-import bg.pathfinder.Models.Enums.Level;
+import com.example.pathfinder.Models.Enums.Level;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -9,7 +9,6 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

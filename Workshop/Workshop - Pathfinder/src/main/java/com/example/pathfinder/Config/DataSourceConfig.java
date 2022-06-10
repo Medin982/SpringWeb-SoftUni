@@ -1,4 +1,4 @@
-package bg.pathfinder.Config;
+package com.example.pathfinder.Config;
 
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;

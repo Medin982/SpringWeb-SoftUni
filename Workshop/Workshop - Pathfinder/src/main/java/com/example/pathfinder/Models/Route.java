@@ -1,6 +1,6 @@
-package bg.pathfinder.Models;
+package com.example.pathfinder.Models;
 
-import bg.pathfinder.Models.Enums.Level;
+import com.example.pathfinder.Models.Enums.Level;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,7 +14,6 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Lob
@@ -36,9 +35,13 @@ public class Route {
     @OneToMany(mappedBy = "route", targetEntity = Comment.class, cascade = CascadeType.ALL)
     private Set<Comment> comments;
 
+    @ManyToMany
+    private Set<Category> categories;
+    
     public Route() {
         this.pictures = new HashSet<>();
         this.comments = new HashSet<>();
+        this.categories = new HashSet<>();
     }
 
     public long getId() {

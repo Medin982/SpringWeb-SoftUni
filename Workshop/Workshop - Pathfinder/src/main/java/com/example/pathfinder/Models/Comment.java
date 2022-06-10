@@ -1,4 +1,4 @@
-package bg.pathfinder.Models;
+package com.example.pathfinder.Models;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "comments")
 public class Comment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -15,7 +14,7 @@ public class Comment {
 
     private LocalDateTime created;
 
-    @Column(name = "text_content")
+    @Column(name = "text_content", nullable = false)
     private String textContent;
 
     @ManyToOne
