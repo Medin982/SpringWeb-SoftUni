@@ -14,7 +14,7 @@ public class Comment {
 
     private LocalDateTime created;
 
-    @Column(name = "text_content", nullable = false)
+    @Column(name = "text_content", nullable = false, columnDefinition = "text")
     private String textContent;
 
     @ManyToOne
@@ -72,5 +72,11 @@ public class Comment {
 
     public void setRoute(Route route) {
         this.route = route;
+    }
+
+
+    public static void main(String[] args) {
+        String sa = "";
+        sa = "tsss";
     }
 }
