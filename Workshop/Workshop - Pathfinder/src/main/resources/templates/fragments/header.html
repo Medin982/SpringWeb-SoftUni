@@ -4,26 +4,26 @@
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>
-                <a href="/users/login">Login</a>
+            <li th:if="${@currentUser.isLogout()}">
+                <a th:href="@{/users/login}">Login</a>
             </li>
-            <li>
-                <a href="/register">Register</a>
+            <li th:if="${@currentUser.isLogout()}">
+                <a th:href="@{/register}">Register</a>
             </li>
             <li>
                 <a href="/">About</a>
             </li>
-            <li>
+            <li th:if="${@currentUser.isLogged()}">
                 <a href="/">Add new route</a>
             </li>
-            <li>
+            <li th:if="${@currentUser.isLogged()}">
                 <a href="/">Profile</a>
             </li>
-            <li>
+            <li th:if="${@currentUser.isLogged()}">
                 <a href="/">Admin</a>
             </li>
-            <li>
-                <a href="/">Logout</a>
+            <li th:if="${@currentUser.isLogged()}">
+                <a th:href="@{/logout}">Logout</a>
             </li>
         </ul>
     </nav>
