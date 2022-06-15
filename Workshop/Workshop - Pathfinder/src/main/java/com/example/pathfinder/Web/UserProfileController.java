@@ -33,5 +33,6 @@ public class UserProfileController {
     public String profile(Model model) {
         model.addAttribute(this.userService.getLoggedUser());
         return "profile";
+
     }
 }
