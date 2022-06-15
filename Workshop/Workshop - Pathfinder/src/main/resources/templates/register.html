@@ -13,7 +13,7 @@
             <form
                     th:action="@{/register}"
                     th:method="post"
-                    th:object="${UserModel}">
+                    th:object="${userModel}">
                 <div>
                     <div class="col-auto">
                         <label for="inputUsername" class="col-form-label ">Username</label>
@@ -105,7 +105,7 @@
                         <label for="inputConfirmPassword" class="col-form-label ">Confirm Password</label>
                     </div>
                     <div class="col-auto">
-                        <input th:field="*{confimrPassword}"
+                        <input th:field="*{confirmPassword}"
                                required minlength="5" maxlength="20"
                                type="password"
                                id="inputConfirmPassword"

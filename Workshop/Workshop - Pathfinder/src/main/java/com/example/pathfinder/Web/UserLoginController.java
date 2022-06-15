@@ -1,7 +1,9 @@
 package com.example.pathfinder.Web;
 
+import com.example.pathfinder.Models.DTO.UserLoginDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserLoginController {
@@ -11,5 +13,8 @@ public class UserLoginController {
         return "login";
     }
 
-
+    @PostMapping("/users/login")
+    public String login(UserLoginDTO userLoginDTO) {
+        return "redirect:/";
+    }
 }
