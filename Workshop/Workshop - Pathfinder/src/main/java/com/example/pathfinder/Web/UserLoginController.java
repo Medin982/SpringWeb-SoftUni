@@ -11,8 +11,5 @@ public class UserLoginController {
         return "login";
     }
 
-    @GetMapping("/register")
-    public String register() {
-        return "register";
-    }
+
 }
