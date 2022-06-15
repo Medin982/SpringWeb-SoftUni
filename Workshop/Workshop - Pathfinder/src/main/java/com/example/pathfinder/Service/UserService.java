@@ -70,4 +70,13 @@ public class UserService {
     public void logout() {
         this.currentUser.clear();
     }
+
+    public User getLoggedUser() {
+        if (this.currentUser.isLogged()) {
+            String username = currentUser.getUsername();
+            Optional<User> byUsername = this.userRepository.findByUsername(username);
+            return byUsername.get();
+        }
+        return null;
+    }
 }
