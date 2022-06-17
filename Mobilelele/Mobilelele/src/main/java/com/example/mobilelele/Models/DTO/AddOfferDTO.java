@@ -3,20 +3,31 @@ package com.example.mobilelele.Models.DTO;
 import com.example.mobilelele.Models.Entity.Enums.EngineEnum;
 import com.example.mobilelele.Models.Entity.Enums.TransmissionEnum;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 public class AddOfferDTO {
-
+    @NotNull
+    @Min(1)
     private Long modelId;
 
+    @NotBlank
     private String imageURL;
 
+    @Positive
+    @NotNull
     private double price;
 
+    @Min(1980)
     private int year;
 
+    @Positive
+    @NotNull
     private int mileage;
 
+    @NotBlank
     private String description;
     @NotNull
     private EngineEnum engine;
