@@ -1,9 +1,16 @@
 package com.example.mobilelele.Models.DTO;
 
+import com.example.mobilelele.Config.CustomValidation.IsMatched;
+import com.example.mobilelele.Config.CustomValidation.UniqueEmailValidation;
+
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+@IsMatched(
+        first = "password",
+        second = "confirmPassword")
 public class UserRegisterDTO {
     @NotEmpty
     @Size(min = 2, max = 20)
@@ -13,14 +20,16 @@ public class UserRegisterDTO {
     @Size(min = 2, max = 20)
     private String lastName;
 
-    @NotEmpty
-    @Email
+    @NotEmpty(message = "Email should be provided.")
+    @Email(message = "Email should be valid.")
+    @UniqueEmailValidation
     private String email;
 
     @NotEmpty
     @Size(min = 5)
     private String password;
 
+    @NotBlank
     private String confirmPassword;
 
     public String getFirstName() {
