@@ -57,6 +57,7 @@ public class UserService {
         this.currentUser
                 .setLogged(true);
         this.currentUser.setName(user.getFirstName()+ " " + user.getLastName());
+        this.currentUser.setEmail(user.getEmail());
     }
 
     public void logout() {

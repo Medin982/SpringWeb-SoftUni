@@ -37,24 +37,6 @@ public class OfferEntity extends BaseEntity {
     @OneToOne
     private UserEntity seller;
 
-//    public OfferEntity() {
-//        this.model = new HashSet<>();
-//    }
-
-//    public OfferEntity(String description, EngineEnum engine, String imageUrl,
-//                       int mileage, BigDecimal price, TransmissionEnum transmission,
-//                       int year, Set<ModelEntity> model, UserEntity seller) {
-//        this.description = description;
-//        this.engine = engine;
-//        this.imageUrl = imageUrl;
-//        this.mileage = mileage;
-//        this.price = price;
-//        this.transmission = transmission;
-//        this.year = year;
-//        this.model = model;
-//        this.seller = seller;
-//    }
-
     public String getDescription() {
         return description;
     }

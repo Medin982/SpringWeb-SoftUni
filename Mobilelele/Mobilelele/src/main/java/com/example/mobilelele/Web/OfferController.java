@@ -18,7 +18,6 @@ import javax.validation.Valid;
 @RequestMapping("/offers")
 public class OfferController {
 
-
     private final OfferService offerService;
     private final BrandService brandService;
 
@@ -37,6 +36,11 @@ public class OfferController {
         return "offer-add";
     }
 
+    @GetMapping("/all")
+    public String allOffer() {
+        return "offers";
+    }
+
     @PostMapping("/add")
     public String addOffer(@Valid AddOfferDTO addOfferDTO,
                            BindingResult bindingResult,
@@ -48,6 +52,6 @@ public class OfferController {
             return "redirect:/offers/add";
         }
         this.offerService.addOffer(addOfferDTO);
-        return "redirect:/";
+        return "redirect:/offers/all";
     }
 }
