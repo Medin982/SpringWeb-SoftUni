@@ -1,0 +1,127 @@
+[33mcommit 50f14e22325c3a2f4fefd7a4c379ae8baede1630[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Wed Jun 15 23:18:51 2022 +0300
+
+    Fixed entities and add all needed layers.
+    
+    Signed-off-by: Medin Tarakchiev <medin123@abv.bg>
+
+[33mcommit 79bf13c5ab5818ede681efda1a05489d24a8e73f[m
+Author: Medin Tarakchiev <medin123@abv.bg>
+Date:   Wed Jun 15 23:14:18 2022 +0300
+
+    Fixed entities and add all needed layers.
+
+[33mcommit b1642741a586db053886f754f9d3b743e7124728[m
+Author: Medin Tarakchiev <medin123@abv.bg>
+Date:   Wed Jun 15 23:09:56 2022 +0300
+
+    Implements Register Controller
+
+[33mcommit 0b25bd74b5e76a72b8ba7806f9232ffb9500eca2[m
+Author: Medin Tarakchiev <medin123@abv.bg>
+Date:   Wed Jun 15 22:56:01 2022 +0300
+
+    Start work for Profile Controller
+
+[33mcommit 65cb091c015148c6f34d602b9c140cf954b236a4[m
+Author: Medin Tarakchiev <medin123@abv.bg>
+Date:   Wed Jun 15 22:20:32 2022 +0300
+
+    Implements Login Controller and navBar if user is logged or not
+
+[33mcommit 75ae9618eb8b02b2bc084c678678ab9608bbf5ef[m
+Author: Medin Tarakchiev <medin123@abv.bg>
+Date:   Wed Jun 15 11:50:55 2022 +0300
+
+    Implements Register Controller
+
+[33mcommit 0b58ac0bbde79612cdc853d142eb436feb0c6a7b[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Wed Jun 15 09:38:46 2022 +0300
+
+    Implements Register Controller
+
+[33mcommit be8de9c2464c77fa2e442fedca868d9b2f6f3c1e[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Tue Jun 14 16:30:35 2022 +0300
+
+    Insert data in DB and create fragments and replace into templates
+
+[33mcommit dfdad79ca2928b3da935fb0bc3b0a4899e2bcabb[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Fri Jun 10 18:18:54 2022 +0300
+
+    Start work for offers
+
+[33mcommit e74c69bcbcda67ca3737ca381b8f0960e0f88835[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Fri Jun 10 12:21:08 2022 +0300
+
+    replace navigation bar with thymeleaf and hide login and register button if users is logged
+
+[33mcommit 8adef010de1384faf07af985c442fed1098467ab[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Fri Jun 10 09:50:48 2022 +0300
+
+    add models, services and reposiories
+
+[33mcommit 2f6fadff8a67dafc53c328ec4e20bd23c009b1f3[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Fri Jun 10 09:45:41 2022 +0300
+
+    Add basic validation
+
+[33mcommit 2ec77ecf8aff4299b08754e31115a7adaa7712b5[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Thu Jun 9 10:40:30 2022 +0300
+
+    Fix Registration and Login functions
+
+[33mcommit 502507bcd60c953b753e055c641a97fda185694d[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Wed Jun 8 22:15:23 2022 +0300
+
+    Add a check to see if user is logged in and display their name
+
+[33mcommit e69579148f8a82cd9819f2e479ac1e0181eebd64[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Wed Jun 8 21:52:22 2022 +0300
+
+    Add passwordEncoder
+
+[33mcommit 169bf1e45ce8d002019ea17ec4a08a98735b0d59[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Tue Jun 7 12:46:25 2022 +0300
+
+    Initial Login/Register Controller
+
+[33mcommit 7ab7be62ab0537ae6f7ac0c7a6920a7d3531dd90[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Sun Jun 5 06:50:33 2022 +0300
+
+    Initial commit
+
+[33mcommit e810642c03f80ed8b90832aaa1647e45664fd395[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Tue May 31 22:04:47 2022 +0300
+
+    Create Home and UserRegister Controller
+
+[33mcommit 0f2d4c8765bafbaa75d5f5492c1a18525bb40f8d[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Tue May 24 20:57:06 2022 +0300
+
+    Fixed entities and add all needen layers
+
+[33mcommit ff5ce89620b2a50b8c675283cbe24427f5a51b84[m
+Author: Medin Tarakchiev <warss982@gmail.com>
+Date:   Tue May 24 18:26:07 2022 +0300
+
+    Initial commit
+
+[33mcommit 6fdfcb4b38839ebc9533d3d7602c052b312109da[m
+Author: Medin Tarakchiev <86888951+Medin982@users.noreply.github.com>
+Date:   Mon May 23 21:52:56 2022 +0300
+
+    Initial commit

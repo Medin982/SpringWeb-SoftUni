@@ -1,6 +1,7 @@
 package com.example.mobilelele.Web;
 
 import com.example.mobilelele.Models.DTO.AddOfferDTO;
+import com.example.mobilelele.Models.DTO.OfferDTO;
 import com.example.mobilelele.Services.BrandService;
 import com.example.mobilelele.Services.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,11 @@ public class OfferController {
     }
 
     @GetMapping("/all")
-    public String allOffer() {
+    public String allOffer(Model model) {
+        if (!model.containsAttribute("allOffers")) {
+            model.addAttribute("allOffers", new OfferDTO());
+        }
+        model.addAttribute("allOffers", this.offerService.getAllOffers());
         return "offers";
     }
 

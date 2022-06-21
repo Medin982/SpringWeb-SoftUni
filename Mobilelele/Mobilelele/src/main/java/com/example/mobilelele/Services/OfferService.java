@@ -2,6 +2,7 @@ package com.example.mobilelele.Services;
 
 import com.example.mobilelele.Models.CurrentUser;
 import com.example.mobilelele.Models.DTO.AddOfferDTO;
+import com.example.mobilelele.Models.DTO.OfferDTO;
 import com.example.mobilelele.Models.Entity.ModelEntity;
 import com.example.mobilelele.Models.Entity.OfferEntity;
 import com.example.mobilelele.Models.Entity.UserEntity;
@@ -11,6 +12,9 @@ import com.example.mobilelele.Repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OfferService {
@@ -42,5 +46,11 @@ public class OfferService {
         offer.setSeller(seller);
         offer.setModel(model);
         this.offerRepository.save(offer);
+    }
+
+    public List<OfferDTO> getAllOffers() {
+      return this.offerRepository.findAll()
+                .stream().
+                map(offer -> this.modelMapper.map(offer, OfferDTO.class)).toList();
     }
 }
