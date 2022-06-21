@@ -1,5 +1,6 @@
 package com.example.mobilelele.Services;
 
+<<<<<<< HEAD
 import com.example.mobilelele.Models.CurrentUser;
 import com.example.mobilelele.Models.DTO.AddOfferDTO;
 import com.example.mobilelele.Models.Entity.ModelEntity;
@@ -10,10 +11,13 @@ import com.example.mobilelele.Repository.OfferRepository;
 import com.example.mobilelele.Repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+>>>>>>> parent of cb4b52d (Work on the OfferController.)
 import org.springframework.stereotype.Service;
 
 @Service
 public class OfferService {
+<<<<<<< HEAD
 
     private final CurrentUser currentUser;
     private final OfferRepository offerRepository;
@@ -43,4 +47,6 @@ public class OfferService {
         offer.setModel(model);
         this.offerRepository.save(offer);
     }
+=======
+>>>>>>> parent of cb4b52d (Work on the OfferController.)
 }
