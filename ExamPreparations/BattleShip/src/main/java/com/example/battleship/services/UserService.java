@@ -61,4 +61,8 @@ public class UserService {
         this.loggedUser.login(user.get());
         return true;
     }
+
+    public void logout() {
+        this.loggedUser.logout();
+    }
 }
