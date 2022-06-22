@@ -2,6 +2,7 @@ package com.example.battleship.services;
 
 import com.example.battleship.models.dtos.LoginDTO;
 import com.example.battleship.models.dtos.RegisterDTO;
+import com.example.battleship.models.dtos.ShipDTO;
 import com.example.battleship.models.entities.User;
 import com.example.battleship.models.session.LoggedUser;
 import com.example.battleship.repository.UserRepository;
@@ -10,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -64,5 +67,14 @@ public class UserService {
 
     public void logout() {
         this.loggedUser.logout();
+    }
+
+    public List<ShipDTO> getAllShips() {
+        Optional<User> user = this.userRepository.findById(this.loggedUser.getId());
+       return user.get().getShips().
+                stream().
+                map(ship -> this.modelMapper.map(ship, ShipDTO.class))
+                .collect(Collectors.toList());
+
     }
 }

@@ -39,8 +39,9 @@ public class ShipsController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("addShip", addShipDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addShip", bindingResult);
-            return "/redirect:/ships/add";
+            return "redirect:/ships/add";
         }
+        this.shipService.addShip(addShipDTO);
         return "redirect:/home";
     }
 }

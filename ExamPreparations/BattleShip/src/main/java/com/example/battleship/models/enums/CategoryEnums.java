@@ -1,5 +1,5 @@
 package com.example.battleship.models.enums;
 
-public enum CategoryEnum {
+public enum CategoryEnums {
     BATTLE, CARGO, PATROL
 }

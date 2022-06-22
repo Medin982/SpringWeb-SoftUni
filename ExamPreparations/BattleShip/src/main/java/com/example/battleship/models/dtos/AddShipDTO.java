@@ -1,13 +1,8 @@
 package com.example.battleship.models.dtos;
 
-import com.example.battleship.models.enums.CategoryEnum;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 public class AddShipDTO {
@@ -26,7 +21,8 @@ public class AddShipDTO {
     @PastOrPresent
     private LocalDate created;
 
-    private CategoryEnum category;
+    @PositiveOrZero
+    private Integer category = -1;
 
     public String getName() {
         return name;
@@ -60,11 +56,11 @@ public class AddShipDTO {
         this.created = created;
     }
 
-    public CategoryEnum getCategory() {
+    public Integer getCategory() {
         return category;
     }
 
-    public void setCategory(CategoryEnum category) {
+    public void setCategory(Integer category) {
         this.category = category;
     }
 }

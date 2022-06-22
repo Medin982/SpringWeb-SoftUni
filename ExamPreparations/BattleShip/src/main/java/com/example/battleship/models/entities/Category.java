@@ -1,6 +1,6 @@
 package com.example.battleship.models.entities;
 
-import com.example.battleship.models.enums.CategoryEnum;
+import com.example.battleship.models.enums.CategoryEnums;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -20,13 +20,17 @@ public class Category {
 
     @Column(nullable = false, unique = true)
     @Enumerated(EnumType.ORDINAL)
-    private CategoryEnum name;
+    private CategoryEnums name;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    public Category(CategoryEnum name) {
+    public Category(CategoryEnums name) {
         this.name = name;
+    }
+
+    public Category() {
+
     }
 
     public UUID getId() {
@@ -37,11 +41,11 @@ public class Category {
         this.id = id;
     }
 
-    public CategoryEnum getName() {
+    public CategoryEnums getName() {
         return name;
     }
 
-    public void setName(CategoryEnum name) {
+    public void setName(CategoryEnums name) {
         this.name = name;
     }
 

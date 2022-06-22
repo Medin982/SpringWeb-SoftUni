@@ -1,7 +1,7 @@
 package com.example.battleship.seeders;
 
 import com.example.battleship.models.entities.Category;
-import com.example.battleship.models.enums.CategoryEnum;
+import com.example.battleship.models.enums.CategoryEnums;
 import com.example.battleship.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +22,7 @@ public class CategorySeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (this.categoryRepository.count() == 0) {
-            List<Category> categories = Arrays.stream(CategoryEnum.values())
+            List<Category> categories = Arrays.stream(CategoryEnums.values())
                     .map(Category::new).toList();
             this.categoryRepository.saveAll(categories);
         }
