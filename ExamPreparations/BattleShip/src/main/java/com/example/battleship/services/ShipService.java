@@ -1,9 +1,11 @@
 package com.example.battleship.services;
 
 import com.example.battleship.models.dtos.AddShipDTO;
-import com.example.battleship.models.entities.Category;
+import com.example.battleship.models.dtos.HomeDTO;
 import com.example.battleship.models.entities.Ship;
+import com.example.battleship.models.entities.User;
 import com.example.battleship.models.enums.CategoryEnums;
+import com.example.battleship.models.services.ShipViewModel;
 import com.example.battleship.models.session.LoggedUser;
 import com.example.battleship.repository.CategoryRepository;
 import com.example.battleship.repository.ShipRepository;
@@ -12,7 +14,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class ShipService {
@@ -41,7 +46,7 @@ public class ShipService {
         CategoryEnums type = getCategoryType(addShipDTO.getCategory());
         Ship ship = this.modelMapper.map(addShipDTO, Ship.class);
         ship.setCategory(this.categoryRepository.findByName(type));
-        ship.setUser(this.userRepository.getReferenceById(this.loggedUser.getId()));
+        ship.setUser(this.userRepository.getById(this.loggedUser.getId()));
         this.shipRepository.save(ship);
         return true;
     }
@@ -53,5 +58,34 @@ public class ShipService {
             case 2 -> CategoryEnums.PATROL;
             default -> null;
         };
+    }
+
+    public List<ShipViewModel> findAllById(String id) {
+        return this.shipRepository.
+                findAllByUserId(id)
+                .stream().
+                map(ship -> this.modelMapper.map(ship, ShipViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+    public List<ShipViewModel> findAllByOtherId(String id) {
+        Optional<User> user = this.userRepository.findById(id);
+        return this.shipRepository.
+                findAllByUserIsNot(user.get()).
+                stream().
+                map(ship -> this.modelMapper.map(ship, ShipViewModel.class)).
+                collect(Collectors.toList());
+    }
+
+    public List<ShipViewModel> findAll() {
+        return this.shipRepository.
+                findAll()
+                .stream().
+                map(ship -> this.modelMapper.map(ship, ShipViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+    public void fight(HomeDTO homeDTO) {
+
     }
 }

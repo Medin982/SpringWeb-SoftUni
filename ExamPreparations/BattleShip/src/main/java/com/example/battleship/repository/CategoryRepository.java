@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, UUID> {
+public interface CategoryRepository extends JpaRepository<Category, String> {
 
     Optional<Category> findByName(String name);
     Category findByName(CategoryEnums name);

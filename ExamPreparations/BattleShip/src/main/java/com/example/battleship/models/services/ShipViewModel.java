@@ -1,12 +1,24 @@
-package com.example.battleship.models.dtos;
+package com.example.battleship.models.services;
 
-public class ShipDTO {
+import java.util.UUID;
+
+public class ShipViewModel {
+
+    private String id;
 
     private String name;
 
     private int health;
 
     private int power;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

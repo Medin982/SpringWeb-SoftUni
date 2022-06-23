@@ -2,7 +2,7 @@ package com.example.battleship.services;
 
 import com.example.battleship.models.dtos.LoginDTO;
 import com.example.battleship.models.dtos.RegisterDTO;
-import com.example.battleship.models.dtos.ShipDTO;
+import com.example.battleship.models.services.ShipViewModel;
 import com.example.battleship.models.entities.User;
 import com.example.battleship.models.session.LoggedUser;
 import com.example.battleship.repository.UserRepository;
@@ -11,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -54,27 +52,19 @@ public class UserService {
     public boolean login(LoginDTO loginDTO) {
         Optional<User> user = this.userRepository.findByUsername(loginDTO.getUsername());
         if (user.isEmpty()) {
-           return false;
-        }
-
-        if (!passwordEncoder.matches(loginDTO.getPassword(), user.get().getPassword())){
             return false;
         }
 
-        this.loggedUser.login(user.get());
+        if (!passwordEncoder.matches(loginDTO.getPassword(), user.get().getPassword())) {
+            return false;
+        }
+
+        this.loggedUser.setId(user.get().getId());
+        this.loggedUser.setFullName(user.get().getFullName());
         return true;
     }
 
     public void logout() {
         this.loggedUser.logout();
-    }
-
-    public List<ShipDTO> getAllShips() {
-        Optional<User> user = this.userRepository.findById(this.loggedUser.getId());
-       return user.get().getShips().
-                stream().
-                map(ship -> this.modelMapper.map(ship, ShipDTO.class))
-                .collect(Collectors.toList());
-
     }
 }

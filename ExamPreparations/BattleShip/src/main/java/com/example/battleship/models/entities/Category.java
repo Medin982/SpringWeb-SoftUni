@@ -11,12 +11,12 @@ import java.util.UUID;
 public class Category {
 
     @Id
-    @GeneratedValue(generator = "UUID")
+    @GeneratedValue(generator = "uuid-string")
     @GenericGenerator(
-            name = "UUID",
+            name = "uuid-string",
             strategy = "org.hibernate.id.UUIDGenerator")
     @Column(nullable = false)
-    private UUID id;
+    private String id;
 
     @Column(nullable = false, unique = true)
     @Enumerated(EnumType.ORDINAL)
@@ -33,11 +33,11 @@ public class Category {
 
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
