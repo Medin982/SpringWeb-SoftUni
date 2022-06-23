@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body class="body-main">
-<header th:include ="~{fragments/navBar}"></header>
+<header th:include="~{fragments/navBar}"></header>
 <main role="main">
     <div class="jumbotron">
         <h1 class="text-center p-5 text-white font-weight-bold">Battle</h1>
@@ -27,7 +27,10 @@
                         </h3>
                         <div class="mb-1 text-white">Select one of the ships that are owned by the current user</div>
                         <select class="form-select mt-5"
-                                aria-label="Default select example">
+                                aria-label="Default select example"
+                                id="ship"
+                                name="ship"
+                                th:field="*{ships}">
                             <option selected>Select one of the ships that are owned by the current user</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -70,7 +73,7 @@
                     <div class="text-center">
                         <h5>Name -- Health -- Power </h5>
                         <ul>
-                            <li class="font-weight-bold">| Name    | Health    | Power    |</li>
+                            <li class="font-weight-bold">| Name | Health | Power |</li>
                         </ul>
                     </div>
                 </div>
