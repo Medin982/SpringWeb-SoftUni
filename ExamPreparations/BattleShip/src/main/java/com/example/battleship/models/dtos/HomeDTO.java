@@ -6,24 +6,24 @@ import java.util.UUID;
 public class HomeDTO {
 
     @NotNull
-    private UUID attackerShip;
+    private String attackerShip;
 
     @NotNull
-    private UUID defenderShip;
+    private String defenderShip;
 
-    public UUID getAttackerShip() {
+    public String getAttackerShip() {
         return attackerShip;
     }
 
-    public void setAttackerShip(UUID attackerShip) {
+    public void setAttackerShip(String attackerShip) {
         this.attackerShip = attackerShip;
     }
 
-    public UUID getDefenderShip() {
+    public String getDefenderShip() {
         return defenderShip;
     }
 
-    public void setDefenderShip(UUID defenderShip) {
+    public void setDefenderShip(String defenderShip) {
         this.defenderShip = defenderShip;
     }
 }

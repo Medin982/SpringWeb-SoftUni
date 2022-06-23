@@ -69,7 +69,7 @@
                     <div th:each="a : ${allShips}" th:object="${a}" class="text-center">
                         <h5>Name -- Health -- Power </h5>
                         <ul>
-                            <li class="font-weight-bold" th:text="| *{name} *{health} *{power} |"></li>
+                            <li class="font-weight-bold" th:text="|*{name} -- *{health} -- *{power}|"></li>
                         </ul>
                     </div>
                 </div>

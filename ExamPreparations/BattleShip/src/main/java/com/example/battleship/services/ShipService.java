@@ -86,6 +86,16 @@ public class ShipService {
     }
 
     public void fight(HomeDTO homeDTO) {
+        Optional<Ship> attacker = this.shipRepository.findById(homeDTO.getAttackerShip());
+        Optional<Ship> defender = this.shipRepository.findById(homeDTO.getDefenderShip());
 
+//        attacker.orElseThrow();
+
+        if (defender.get().getHealth() - attacker.get().getPower() <= 0) {
+            this.shipRepository.delete(defender.get());
+        } else {
+            defender.get().setHealth(defender.get().getHealth() - attacker.get().getPower());
+            this.shipRepository.save(defender.get());
+        }
     }
 }
