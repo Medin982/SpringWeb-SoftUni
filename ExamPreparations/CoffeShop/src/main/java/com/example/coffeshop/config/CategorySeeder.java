@@ -25,7 +25,15 @@ public class CategorySeeder implements CommandLineRunner {
         if (this.categoryRepository.count() <= 0) {
             this.categoryRepository.
                     saveAll(Arrays.stream(CategoryName.values()).
-                            map(Category::new).
+                            map(c ->  {
+                                return switch (c.name()) {
+                                    case "COFFEE" -> new Category(c, 2);
+                                    case "CAKE" -> new Category(c, 10);
+                                    case "DRINK" -> new Category(c, 1);
+                                    case "OTHER" -> new Category(c, 5);
+                                    default -> new Category();
+                                };
+                            }).
                             collect(Collectors.toList()));
         }
     }

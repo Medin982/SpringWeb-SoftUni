@@ -1,44 +1,33 @@
-package com.example.coffeshop.models.entities;
+package com.example.coffeshop.models.services;
 
-import javax.persistence.*;
-import java.util.List;
+public class UserServiceModel {
 
-@Entity
-@Table(name = "users")
-public class User extends BaseEntity{
+    private long id;
 
-    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
     private String firstName;
 
-    @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "employee", targetEntity = Order.class)
-    private List<Order> orderList;
-
-    public List<Order> getOrderList() {
-        return orderList;
+    public long getId() {
+        return id;
     }
 
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String name) {
-        this.username = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {

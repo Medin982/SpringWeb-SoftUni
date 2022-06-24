@@ -22,6 +22,11 @@ public class Category extends BaseEntity{
         this.name = name;
     }
 
+    public Category(CategoryName name, int i) {
+        this.name = name;
+        this.neededTime = i;
+    }
+
     public CategoryName getName() {
         return name;
     }
