@@ -24,7 +24,6 @@ public class AddOfferDTO {
     private int year;
 
     @Positive
-    @NotNull
     private int mileage;
 
     @NotBlank

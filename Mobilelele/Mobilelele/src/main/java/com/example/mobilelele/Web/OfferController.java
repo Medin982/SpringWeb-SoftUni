@@ -48,9 +48,9 @@ public class OfferController {
             redirectAttributes.addFlashAttribute("addOfferDTO", addOfferDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addOfferDTO",
                     bindingResult);
-            return "redirect:/offers/add";
+            return "redirect:add";
         }
         this.offerService.addOffer(addOfferDTO);
-        return "redirect:/offers/all";
+        return "redirect:all";
     }
 }
