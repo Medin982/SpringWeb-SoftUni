@@ -49,7 +49,7 @@ public class RegisterUserController {
             return "redirect:register";
         }
         this.userService.registerUser(userModel);
-        return "redirect:/login";
+        return "redirect:login";
     }
 
 

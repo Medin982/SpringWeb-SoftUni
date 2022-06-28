@@ -37,7 +37,7 @@ public class OfferService {
     public void addOffer(AddOfferDTO addOfferDTO) {
         OfferEntity offer = this.modelMapper.map(addOfferDTO, OfferEntity.class);
 
-        UserEntity seller = this.userRepository.findByEmail(this.currentUser.getEmail())
+        UserEntity seller = this.userRepository.findById(this.currentUser.getId())
                 .orElseThrow();
         ModelEntity model = this.modelRepository.findById(addOfferDTO.getModelId()).
                 orElseThrow();

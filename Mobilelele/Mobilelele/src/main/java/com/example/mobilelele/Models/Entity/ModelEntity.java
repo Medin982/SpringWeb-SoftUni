@@ -12,7 +12,7 @@ public class ModelEntity extends BaseEntity {
     private String name;
 
     @Enumerated(EnumType.STRING)
-    private CategoryEnum categoryEnum;
+    private CategoryEnum category;
 
     @Column(length = 512)
     private String imageUrl;
@@ -20,24 +20,10 @@ public class ModelEntity extends BaseEntity {
     @Column(nullable = false)
     private int startYear;
 
-    @Column(nullable = false)
     private int endYear;
 
     @ManyToOne
     private BrandEntity brand;
-
-//    public ModelEntity() {
-//    }
-//
-//    public ModelEntity(String name, CategoryEnum categoryEnum,
-//                       String imageUrl, int startYear, int endYear, BrandEntity brand) {
-//        this.name = name;
-//        this.categoryEnum = categoryEnum;
-//        this.imageUrl = imageUrl;
-//        this.startYear = startYear;
-//        this.endYear = endYear;
-//        this.brand = brand;
-//    }
 
     public String getName() {
         return name;
@@ -47,12 +33,12 @@ public class ModelEntity extends BaseEntity {
         this.name = name;
     }
 
-    public CategoryEnum getCategoryEnum() {
-        return categoryEnum;
+    public CategoryEnum getCategory() {
+        return category;
     }
 
-    public void setCategoryEnum(CategoryEnum categoryEnum) {
-        this.categoryEnum = categoryEnum;
+    public void setCategory(CategoryEnum categoryEnum) {
+        this.category = categoryEnum;
     }
 
     public String getImageUrl() {

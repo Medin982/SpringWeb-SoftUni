@@ -1,8 +1,16 @@
 package com.example.mobilelele.Models.DTO;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class UserLoginDTO {
 
+    @Email
+    @NotBlank
     private String email;
+    @NotBlank
+    @Size(min = 5)
     private String password;
 
     public String getEmail() {
@@ -21,11 +29,4 @@ public class UserLoginDTO {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "UserLoginDTO{" +
-                "username='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

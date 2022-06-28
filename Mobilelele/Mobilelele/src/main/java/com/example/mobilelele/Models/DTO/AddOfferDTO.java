@@ -3,10 +3,8 @@ package com.example.mobilelele.Models.DTO;
 import com.example.mobilelele.Models.Entity.Enums.EngineEnum;
 import com.example.mobilelele.Models.Entity.Enums.TransmissionEnum;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
+import java.math.BigDecimal;
 
 public class AddOfferDTO {
     @NotNull
@@ -18,7 +16,7 @@ public class AddOfferDTO {
 
     @Positive
     @NotNull
-    private double price;
+    private BigDecimal price;
 
     @Min(1980)
     private int year;
@@ -49,11 +47,11 @@ public class AddOfferDTO {
         this.imageURL = imageURL;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

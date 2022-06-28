@@ -1,8 +1,7 @@
 package com.example.mobilelele.Models.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "brands")
@@ -11,6 +10,16 @@ public class BrandEntity extends BaseEntity {
     @Column(nullable = false)
     private String name;
 
+    @OneToMany(mappedBy = "brand", targetEntity = ModelEntity.class, cascade = CascadeType.ALL)
+    private List<ModelEntity> models;
+
+    public List<ModelEntity> getModels() {
+        return models;
+    }
+
+    public void setModels(List<ModelEntity> models) {
+        this.models = models;
+    }
 
     public BrandEntity() {
     }
