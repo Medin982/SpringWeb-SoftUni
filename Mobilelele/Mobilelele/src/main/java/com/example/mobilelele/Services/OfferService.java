@@ -3,6 +3,7 @@ package com.example.mobilelele.Services;
 import com.example.mobilelele.Models.CurrentUser;
 import com.example.mobilelele.Models.DTO.AddOfferDTO;
 import com.example.mobilelele.Models.DTO.OfferDTO;
+import com.example.mobilelele.Models.DTO.OfferDetailsDTO;
 import com.example.mobilelele.Models.Entity.ModelEntity;
 import com.example.mobilelele.Models.Entity.OfferEntity;
 import com.example.mobilelele.Models.Entity.UserEntity;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OfferService {
@@ -48,9 +50,40 @@ public class OfferService {
     }
 
     public List<OfferDTO> getAllOffers() {
-      return this.offerRepository.findAll()
+        return this.offerRepository.findAll()
                 .stream().
-                map(offer -> this.modelMapper.map(offer, OfferDTO.class)).toList();
+                map(offer -> {
+                    String brandName = offer.getModel().getBrand().getName();
+                    OfferDTO currentOffer = this.modelMapper.map(offer, OfferDTO.class);
+                    currentOffer.setBrandName(brandName);
+                    return currentOffer;
+                }).toList();
     }
 
+    public OfferDetailsDTO getDetailsOffers(Long id) {
+        return this.offerRepository.
+                findById(id).
+                map(offer -> {
+                    String brandName = offer.getModel().getBrand().getName();
+                    OfferDetailsDTO currentOffer = this.modelMapper.map(offer, OfferDetailsDTO.class);
+                    currentOffer.setBrandName(brandName);
+                    return currentOffer;
+                }).
+                orElseThrow();
+    }
+
+    public void updateOffer(AddOfferDTO addOfferDTO, Long id) {
+        Optional<OfferEntity> updateOffer = this.offerRepository.findById(id).
+                map(offer -> {
+                    offer.setDescription(addOfferDTO.getDescription());
+                    offer.setEngine(addOfferDTO.getEngine());
+                    offer.setMileage(addOfferDTO.getMileage());
+                    offer.setImageUrl(addOfferDTO.getImageURL());
+                    offer.setPrice(addOfferDTO.getPrice());
+                    offer.setTransmission(addOfferDTO.getTransmission());
+                    offer.setYear(addOfferDTO.getYear());
+                    return offer;
+                });
+        this.offerRepository.save(updateOffer.get());
+    }
 }

@@ -30,7 +30,7 @@ public class UserService {
 
     public boolean login(UserLoginDTO userLoginDTO) {
         Optional<UserEntity> user = this.userRepository.findByEmail(userLoginDTO.getEmail());
-        if (user.isPresent()) {
+        if (user.isEmpty()) {
             return false;
         }
         String password = userLoginDTO.getPassword();

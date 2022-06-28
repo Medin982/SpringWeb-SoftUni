@@ -2,10 +2,12 @@ package com.example.mobilelele.Models.DTO;
 
 import com.example.mobilelele.Models.Entity.Enums.EngineEnum;
 import com.example.mobilelele.Models.Entity.Enums.TransmissionEnum;
+import com.example.mobilelele.Models.Entity.UserEntity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class OfferDTO {
+public class OfferDetailsDTO {
 
     private Long id;
 
@@ -15,7 +17,7 @@ public class OfferDTO {
 
     private int mileage;
 
-    private double price;
+    private BigDecimal price;
 
     private EngineEnum engine;
 
@@ -25,28 +27,18 @@ public class OfferDTO {
 
     private int year;
 
+    private LocalDate created;
+
+    private LocalDate modified;
+
+    private UserEntity seller;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
     }
 
     public String getBrandName() {
@@ -73,11 +65,11 @@ public class OfferDTO {
         this.mileage = mileage;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -95,5 +87,45 @@ public class OfferDTO {
 
     public void setTransmission(TransmissionEnum transmission) {
         this.transmission = transmission;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public LocalDate getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
+
+    public LocalDate getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDate modified) {
+        this.modified = modified;
+    }
+
+    public UserEntity getSeller() {
+        return seller;
+    }
+
+    public void setSeller(UserEntity seller) {
+        this.seller = seller;
     }
 }

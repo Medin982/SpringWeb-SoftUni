@@ -9,10 +9,10 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
 
-//    @Column(nullable = false)
+    @Column(nullable = false)
     protected LocalDate created;
 
-//    @Column(nullable = false)
+    @Column(nullable = false)
     protected LocalDate modified;
 
     @PrePersist
