@@ -8,6 +8,16 @@ public class BookDTO {
 
     private String isbn;
 
+    private AuthorDTO author;
+
+    public AuthorDTO getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(AuthorDTO author) {
+        this.author = author;
+    }
+
     public Long getId() {
         return id;
     }

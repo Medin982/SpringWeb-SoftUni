@@ -1,7 +1,9 @@
 package com.example.books.web;
 
+import com.example.books.models.dto.AddBookDTO;
 import com.example.books.models.dto.BookDTO;
 import com.example.books.service.BookService;
+import com.sun.xml.bind.v2.TODO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,5 +38,13 @@ public class BookController {
             return ResponseEntity.
                     ok(bookById.get());
         }
+    }
+
+//    TODO: Post request not work, need to fix
+    @PostMapping("/add")
+    public ResponseEntity<AddBookDTO> newBook(@RequestBody AddBookDTO addBookDTO) {
+        BookDTO book = this.bookService.addBook(addBookDTO);
+        return ResponseEntity.
+                created();
     }
 }
