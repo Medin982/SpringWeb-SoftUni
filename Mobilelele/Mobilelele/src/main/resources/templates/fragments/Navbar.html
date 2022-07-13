@@ -1,7 +1,6 @@
-
-<div>
+<div xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-        <a class="navbar-brand" href="/"><img alt="car picture" src="/img/car.png" class="logo"></a>
+        <a class="navbar-brand" href="/"><img alt="car picture" src="/images/car.png" class="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,7 +8,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto col-12 justify-content-between">
-               <th:block th:if="${@currentUser.id != null}">
+               <th:block sec:authorize="isAuthenticated()">
                    <li class="nav-item">
                        <a class="nav-link" href="/brands/all">All Brands</a>
                    </li>
@@ -20,7 +19,7 @@
                        <a class="nav-link" href="/offers/all">All Offers</a>
                    </li>
                </th:block>
-                <li th:if="${@currentUser.id != null}" class="nav-item dropdown">
+                <li sec:authorize="hasRole('ADMIN')" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Admin
@@ -32,7 +31,7 @@
                         <a class="dropdown-item" href="/">Something else here</a>
                     </div>
                 </li>
-                <li class="nav-item" th:if="${@currentUser.id != null}">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
                     <div class="form-inline my-2 my-lg-0 border px-3">
                         <div class="logged-user"
                              th:text="${@currentUser.getName()}"></div>
@@ -40,7 +39,7 @@
                     </div>
                 </li>
 
-                <th:block th:if="${@currentUser.id == null}">
+                <th:block sec:authorize="isAnonymous()">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/users/register}">Register</a>
                     </li>
