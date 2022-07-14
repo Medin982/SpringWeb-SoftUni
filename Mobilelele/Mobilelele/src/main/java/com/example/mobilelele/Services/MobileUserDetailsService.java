@@ -2,10 +2,10 @@ package com.example.mobilelele.Services;
 
 import com.example.mobilelele.Models.Entity.RoleEntity;
 import com.example.mobilelele.Models.Entity.UserEntity;
+import com.example.mobilelele.Models.Entity.user.MobileleUserDetails;
 import com.example.mobilelele.Repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -27,15 +27,17 @@ public class MobileUserDetailsService implements UserDetailsService {
     }
 
     private UserDetails map(UserEntity userEntity) {
-        return User.builder().
-                username(userEntity.getUsername()).
-                password(userEntity.getPassword()).
-                authorities(userEntity.
+        return new MobileleUserDetails(
+                userEntity.getPassword(),
+                userEntity.getEmail(),
+                userEntity.getFirstName(),
+                userEntity.getLastName(),
+                userEntity.
                         getRole().
                         stream().
                         map(this::map).
-                        toList()).
-                build();
+                        toList()
+                );
     }
 
     private GrantedAuthority map(RoleEntity role) {

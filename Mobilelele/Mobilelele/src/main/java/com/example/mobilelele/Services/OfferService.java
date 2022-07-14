@@ -1,6 +1,5 @@
 package com.example.mobilelele.Services;
 
-import com.example.mobilelele.Models.CurrentUser;
 import com.example.mobilelele.Models.DTO.AddOfferDTO;
 import com.example.mobilelele.Models.DTO.OfferDTO;
 import com.example.mobilelele.Models.DTO.OfferDetailsDTO;
@@ -20,16 +19,14 @@ import java.util.Optional;
 @Service
 public class OfferService {
 
-    private final CurrentUser currentUser;
     private final OfferRepository offerRepository;
     private final UserRepository userRepository;
     private final ModelRepository modelRepository;
     private final ModelMapper modelMapper;
 
     @Autowired
-    public OfferService(CurrentUser currentUser, OfferRepository offerRepository,
+    public OfferService(OfferRepository offerRepository,
                         UserRepository userRepository, ModelRepository modelRepository, ModelMapper modelMapper) {
-        this.currentUser = currentUser;
         this.offerRepository = offerRepository;
         this.userRepository = userRepository;
         this.modelRepository = modelRepository;
@@ -39,12 +36,10 @@ public class OfferService {
     public void addOffer(AddOfferDTO addOfferDTO) {
         OfferEntity offer = this.modelMapper.map(addOfferDTO, OfferEntity.class);
 
-        UserEntity seller = this.userRepository.findById(this.currentUser.getId())
-                .orElseThrow();
         ModelEntity model = this.modelRepository.findById(addOfferDTO.getModelId()).
                 orElseThrow();
 
-        offer.setSeller(seller);
+//        offer.setSeller(seller);
         offer.setModel(model);
         this.offerRepository.save(offer);
     }

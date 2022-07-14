@@ -21,12 +21,11 @@ import javax.validation.Valid;
 public class RegisterUserController {
 
     private final UserService userService;
-    private final UserRepository userRepository;
 
     @Autowired
-    public RegisterUserController(UserService userService, UserRepository userRepository) {
+    public RegisterUserController(UserService userService) {
         this.userService = userService;
-        this.userRepository = userRepository;
+
     }
 
     @ModelAttribute("userModel")
